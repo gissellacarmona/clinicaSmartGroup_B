@@ -4,8 +4,6 @@ from django.contrib.auth.hashers import make_password
 
 class UserManager(BaseUserManager):
     def create_user(self, username, password=None):
-        
-
         if not username:
             raise ValueError('Users must have an username')
         user = self.model(username=username)
@@ -16,8 +14,8 @@ class UserManager(BaseUserManager):
     def create_superuser(self, username, password):
 
         user = self.create_user(
-        username=username,
-        password=password,
+            username=username,
+            password=password,
     )
         user.is_admin = True
         user.save(using=self._db)
