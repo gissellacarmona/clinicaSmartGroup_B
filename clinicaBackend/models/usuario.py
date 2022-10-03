@@ -37,8 +37,8 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
         self.password = make_password(self.password, some_salt)
         super().save(**kwargs)
 
-objects = UserManager()
-USERNAME_FIELD = 'username'
+    objects = UserManager()
+    USERNAME_FIELD = 'username'
 
 
 
