@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'clinicaBackend',
+    'rest_framework_simplejwt.token_blacklist'
 ]
 
 SIMPLE_JWT = {

@@ -23,14 +23,14 @@ class UserManager(BaseUserManager):
 
 class Usuario(AbstractBaseUser, PermissionsMixin): 
     id = models.BigAutoField(primary_key=True)
-    rol= models.CharField('Rol', max_length = 30,),
-    nombre = models.CharField('Nombre', max_length = 30)
-    apellido = models.CharField('Apellido', max_length = 30)
-    celular = models.CharField('Celular', max_length = 30)
+    rol= models.CharField('Rol', max_length = 25,),
+    nombre = models.CharField('Nombre', max_length = 32)
+    apellido = models.CharField('Apellido', max_length = 34)
+    celular = models.CharField('Celular', max_length = 36)
     email = models.EmailField('Email', max_length = 100)
     direccion = models.CharField('Direccion', max_length = 50)
     username = models.CharField('Username', max_length = 15, unique=True)
-    password = models.CharField('Password', max_length = 30)
+    password = models.CharField('Password', max_length = 200)
 
     def save(self, **kwargs):
         some_salt = 'mMUj0DrIK6vgtdIYepkIxN'
