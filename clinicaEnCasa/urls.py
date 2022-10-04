@@ -15,7 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from clinicaBackend import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('user/', views.UsuarioListView.as_view()),  
+    path('user/<int:pk>/', views.UsuarioRetrieveUpdateDeleteView.as_view()),  
+    path('medico/', views.MedicoListCreateView.as_view()),  
+    path('medico/<int:pk>/', views.MedicoRetrieveUpdateView.as_view()),  
+    path('paciente/', views.PacienteListCreateView.as_view()),
+    path('paciente/<int:pk>/', views.PacienteRetrieveUpdateView.as_view()),
+    path('enfermero/', views.EnfermeroListCreateView.as_view()),
+    path('enfermero/<int:pk>/', views.EnfermeroRetrieveUpdateView.as_view()),
+    path('histclin/', views.HistclinListCreateView.as_view()),
+    path('histclin/<int:pk>/', views.HistclinRetrieveUpdateView.as_view()),
+    
 ]
