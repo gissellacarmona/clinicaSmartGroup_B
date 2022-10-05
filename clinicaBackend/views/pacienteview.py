@@ -37,7 +37,7 @@ class PacienteListCreateView(generics.ListCreateAPIView):
         tokenSerializer.is_valid(raise_exception=True)
         return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED) """
 
-class PacienteRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+class PacienteRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Paciente.objects.all()
     serializer_class = PacienteSerializer
     lookup_field = "id"             # campo con el que se realiza la búsqueda de los objetos
@@ -45,15 +45,22 @@ class PacienteRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     #permission_classes = (IsAuthenticated,)
 
     def get(self, request, *args, **kwargs):
-        print("GET a Paciente")
+        print("GET a Usuario")
         """ if valid_data['user_id'] != kwargs['pk']:
             stringResponse = {'detail':'Unauthorized Request'}
             return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED) """
         return super().get(request, *args, **kwargs)
 
     def put(self, request, *args, **kwargs):
-        print("PUT a Paciente")
+        print("PUT a Usuario")
         """ if valid_data['user_id'] != kwargs['pk']:
             stringResponse = {'detail':'Unauthorized Request'}
             return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED) """
         return super().put(request, *args, **kwargs)
+    
+    def delete(self, request, *args, **kwargs):
+        print("DELETE a Usuario")
+        """ if valid_data['user_id'] != kwargs['pk']:
+            stringResponse = {'detail':'Unauthorized Request'}
+            return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED) """
+        return super().delete(request, *args, **kwargs)
