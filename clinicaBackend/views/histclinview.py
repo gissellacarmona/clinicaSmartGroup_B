@@ -2,7 +2,6 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 #from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from clinicaBackend.serializers.histclinSerializer import HistclinSerializer
-from clinicaBackend.serializers.usuarioSerializer import UsuarioSerializer
 from clinicaBackend.models.historia_clinica import Historia_clinica
 
 class HistclinListCreateView(generics.ListCreateAPIView):
@@ -18,15 +17,10 @@ class HistclinListCreateView(generics.ListCreateAPIView):
 
     def post(self, request, *args, **kwargs):
         print("POST a Historia_clinica")
-        usuarioData = request.data.pop('usuario')
-        serializerU  = UsuarioSerializer(data=usuarioData)
+        pacienteData = request.data
+        serializerU  = HistclinSerializer(data=pacienteData)
         serializerU.is_valid(raise_exception=True)
-        usuario = serializerU.save()
-        enfData = request.data   
-        enfData.update({"usuario":usuario.id})
-        serializerEnf = HistclinSerializer(data=enfData)
-        serializerEnf.is_valid(raise_exception=True)
-        serializerEnf.save()
+        serializerU.save()
         return Response(status=status.HTTP_201_CREATED)
 
         """ tokenData = {
