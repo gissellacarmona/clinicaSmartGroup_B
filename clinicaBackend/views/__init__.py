@@ -2,5 +2,5 @@ from .userview import UsuarioListView, UsuarioRetrieveUpdateDeleteView
 from .medicoview import MedicoListCreateView, MedicoRetrieveUpdateView
 from .pacienteview import PacienteListCreateView, PacienteRetrieveUpdateView
 from .histclinview import HistclinListCreateView, HistclinRetrieveUpdateView
-from .enferpaciview import EnferpaciListView
 from .enfermeroview import EnfermeroListCreateView, EnfermeroRetrieveUpdateView
+from .asignar_med_enfview import Asignar_med_enfviewListCreateView

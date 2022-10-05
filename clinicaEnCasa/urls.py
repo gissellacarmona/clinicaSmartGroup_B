@@ -29,5 +29,5 @@ urlpatterns = [
     path('enfermero/<int:pk>/', views.EnfermeroRetrieveUpdateView.as_view()),
     path('histclin/', views.HistclinListCreateView.as_view()),
     path('histclin/<int:pk>/', views.HistclinRetrieveUpdateView.as_view()),
-    
+    path('asignar_med_enf/', views.Asignar_med_enfviewListCreateView.as_view()),
 ]

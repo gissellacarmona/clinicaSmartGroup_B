@@ -4,4 +4,4 @@ from clinicaBackend.models.paciente import Paciente
 class PacienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Paciente
-        fields = ['usuario','historia_clinica', 'medico','nombreFamiliar','apellidoFamiliar','parentesco','celular']
+        fields = ['usuario','enfermero','medico','nombreFamiliar','apellidoFamiliar','parentesco','celular']
